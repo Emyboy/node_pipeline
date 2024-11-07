@@ -32,7 +32,8 @@ router.get('/divide', (req, res) => {
     }
     const result = divide(a, b);
     res.json({ result });
-  } catch (error:any) {
+  } catch (error) {
+    //@ts-ignore
     res.status(400).json({ error: error.message });
   }
 });

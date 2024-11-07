@@ -22,7 +22,6 @@ export default [
       'no-console': 'off',
       eqeqeq: 'error',
       curly: 'error',
-
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_' },
