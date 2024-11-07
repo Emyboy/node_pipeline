@@ -1,6 +1,7 @@
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import eslintPluginTypescript from '@typescript-eslint/eslint-plugin';
 import * as parser from '@typescript-eslint/parser';
+import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   {
@@ -9,6 +10,7 @@ export default [
     plugins: {
       prettier: eslintPluginPrettier,
       '@typescript-eslint': eslintPluginTypescript,
+      '@stylistic': stylistic,
     },
     languageOptions: {
       parser: parser,
@@ -18,11 +20,10 @@ export default [
       },
     },
     rules: {
-      semi: 'error',
       'no-console': 'off',
+      '@stylistic/indent': ['error', 2],
       eqeqeq: 'error',
       curly: 'error',
-
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_' },
