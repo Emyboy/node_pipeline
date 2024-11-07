@@ -5,7 +5,7 @@ import * as parser from '@typescript-eslint/parser';
 export default [
   {
     files: ['src/**/*.ts', '*'],
-    ignores: ['node_modules', 'dist', 'eslint.config.js'],
+    ignores: ['node_modules', 'dist', 'eslint.config.js', '.github'],
     plugins: {
       prettier: eslintPluginPrettier,
       '@typescript-eslint': eslintPluginTypescript,
