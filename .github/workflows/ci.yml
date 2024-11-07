@@ -1,13 +1,13 @@
-name: CI/CD Pipeline with Codecov
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-      - 'develop/*'  # Trigger on push to main or feature branches
+      - 'develop/*'
   pull_request:
     branches:
-      - main  # Trigger on pull request to main
+      - main
 
 jobs:
   test:
@@ -17,27 +17,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'  # You can change this to the required version
+          node-version: '20'
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Run linting (optional, if you want to check code quality)
       - name: Run linting
         run: npm run lint
 
-      # Run tests with coverage
       - name: Run tests with coverage
         run: npm run test -- --coverage
-
-      # Upload coverage to Codecov
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}  # You need to set this up in GitHub secrets
-          file: ./coverage/lcov-report/index.html  # Optional: Use this if you want to upload html reports

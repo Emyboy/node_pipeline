@@ -1,12 +1,18 @@
-import eslintPluginPrettier from 'eslint-plugin-prettier';
-import eslintPluginTypescript from '@typescript-eslint/eslint-plugin';
-import * as parser from '@typescript-eslint/parser';
-import stylistic from '@stylistic/eslint-plugin';
+const eslintPluginPrettier = require('eslint-plugin-prettier');
+const eslintPluginTypescript = require('@typescript-eslint/eslint-plugin');
+const parser = require('@typescript-eslint/parser');
+const stylistic = require('@stylistic/eslint-plugin');
 
-export default [
+module.exports = [
   {
     files: ['src/**/*.ts', '*'],
-    ignores: ['node_modules', 'dist', 'eslint.config.js', '.github'],
+    ignores: [
+      'node_modules',
+      'dist',
+      'eslint.config.js',
+      '.github',
+      'coverage/*',
+    ],
     plugins: {
       prettier: eslintPluginPrettier,
       '@typescript-eslint': eslintPluginTypescript,
