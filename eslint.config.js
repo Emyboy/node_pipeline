@@ -18,7 +18,6 @@ export default [
       },
     },
     rules: {
-      semi: 'error',
       'no-console': 'off',
       eqeqeq: 'error',
       curly: 'error',
