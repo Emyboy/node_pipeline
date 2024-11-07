@@ -22,13 +22,18 @@ router.get('/multiply', (req: Request, res: Response) => {
   res.json({ result });
 });
 
-router.get('/divide', (req: Request, res: Response) => {
-  const { a, b } = req.query;
+router.get('/divide', (req, res) => {
+  const a = Number(req.query.a);
+  const b = Number(req.query.b);
+
   try {
-    const result = divide(Number(a), Number(b));
+    if (b === 0) {
+      throw new Error('Cannot divide by zero');
+    }
+    const result = divide(a, b);
     res.json({ result });
-  } catch (error) {
-    res.status(400).json({ error });
+  } catch (error:any) {
+    res.status(400).json({ error: error.message });
   }
 });
 
