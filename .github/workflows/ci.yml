@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'feature/*'  # Trigger on push to main or feature branches
+      - 'develop/*'  # Trigger on push to main or feature branches
   pull_request:
     branches:
       - main  # Trigger on pull request to main
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # You can change this to the required version
+          node-version: '20'  # You can change this to the required version
 
       # Install dependencies
       - name: Install dependencies
